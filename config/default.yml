@@ -1,0 +1,116 @@
+# debug:
+#   special-numbers:
+#     0876543210: 0876543210
+
+# request-blocking:
+#   robot:
+#     headers:
+#       user-agent: ""  # Block if there is a header
+#       user-agent: ".*python.*"  # Block if there is "python" in header
+
+application-config:
+  soft-logout-timeout-duration: 120
+  hard-logout-timeout-duration: 600
+
+circuit-breaker:
+  request-timeout: 5000
+  fail-limit: 5
+  success-limit: 5
+  reset-time: 5000
+  # unexpected-status:
+  # - 500
+
+third-party-services:
+  transaction-meta-data:
+    endpoint: http://192.168.211.187:9102
+    strict-ssl: false
+    certificate-file: path/to/clientcert.pem
+    primary-key-file: path/to/clientkey.pem
+    passphrase: secret
+    certificate-authorities:
+    - path/to/cacert.pem
+  esb:
+    endpoint: https://...
+    strict-ssl: true
+    certificate-file: path/to/clientcert.pem
+    primary-key-file: path/to/clientkey.pem
+    passphrase: secret
+    certificate-authorities:
+    - path/to/cacert.pem
+  test:
+    endpoint: https://httpbin.org
+    strict-ssl: true
+    certificate-file: path/to/clientcert.pem
+    primary-key-file: path/to/clientkey.pem
+    passphrase: secret
+    certificate-authorities:
+    - path/to/cacert.pem
+
+#  version:
+#   supported:
+#   - ^0.1.1
+
+logging:
+  format: "<timestamp> [<upper:level>] (<source>) <message>"
+  source: "<basename:source-file>:<source-line>"
+  log-file: "logs/log"
+  date-pattern: "yyyy-MM-ddTHH."
+  timestamp: "YYYY-MM-DDTHH:mm:ss.SSS"
+  level: info
+  # console-level: info
+  # file-level: info
+  # secure-keys:
+  #   password: string
+  operation:
+    include-headers: true
+    pretty: true
+    truncate-at: 4000
+    # inclusions:
+    # - operation-name
+    # exclusions:
+    # - operation-name
+    # inclusion-url-patterns:
+    # - regular-expression
+    # exclusion-url-patterns:
+    # - regular-expression
+
+  request:
+    include-headers: true
+    pretty: true
+    truncate-at: 4000
+
+monolith-loyalty-service:
+  service-port: 3001
+  secure-service-port: 3443
+
+  # certificate:
+  #   certificate-file: path/to/clientcert.pem
+  #   primary-key-file: path/to/clientkey.pem
+  #   pfx-certificate-file: path/to/clientcertkey.p12
+  #   passphrase: secret
+  #   certificate-authorities:
+  #   - path/to/cacert.pem
+
+  rabbitmq:
+    connection-url: "amqp://127.0.0.1"
+    # connection-timeout: 60000
+    reconnect-time: 5000
+    prefetch: 30
+    # certificate-file: path/to/clientcert.pem
+    # primary-key-file: path/to/clientkey.pem
+    # pfx-certificate-file: path/to/clientcertkey.p12
+    # passphrase: secret
+    # certificate-authorities:
+    # - path/to/cacert.pem
+
+  mongodb:
+    connection-url: "mongodb://127.0.0.1:27017/loyalty?maxPoolSize=200&connectTimeoutMS=30000&socketTimeoutMS=35000"
+    # connection-timeout: 60000
+    reconnect-time: 5000
+    keep-alive: true
+    keep-alive-initial-delay: 30000
+    # certificate-file: path/to/clientcert.pem
+    # primary-key-file: path/to/clientkey.pem
+    # passphrase: secret
+    # certificate-authorities:
+    # - path/to/cacert.pem

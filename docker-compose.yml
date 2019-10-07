@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  loyalty-mongo:
+    container_name: loyalty-mongo
+    image: mongo:3.4.10
+    ports:
+    - "27017:27017"
+    volumes:
+    - /Users/ger/loyalty-monolith/db:/data/db
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "8k"
+  monolith-loyalty-service:
+    container_name: monolith-loyalty-service
+    image: monolith-loyalty:1.0.0
+    ports:
+    - "9000:3000"
+    expose:
+    - 9000
+    volumes:
+    - /Users/ger/loyalty-monolith/loyalty-service/app/config:/app/config
+    - /Users/ger/loyalty-monolith/loyalty-service/app/logs:/app/logs
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "8k"
+    environment:
+    - NODE_CONFIG_DIR=/app/config
+    - NODE_ENV=development

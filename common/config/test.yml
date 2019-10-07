@@ -1,0 +1,15 @@
+logging:
+  secure-keys:
+    key1: any
+    key2: string
+    key3: number
+    key4: boolean
+    key5: array
+    key6: object
+    key7: number|object|array
+    key8: invalid
+
+request-blocking:
+  test-mode:
+    headers:
+      user-agent: "^testing-agent$"

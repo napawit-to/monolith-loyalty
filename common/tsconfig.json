@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "removeComments": true,
+        "skipLibCheck": true,
+        "strict": true
+    },
+    "exclude": [
+        "node_modules",
+        "bower_components",
+        "jspm_packages",
+        "typings",
+        "tmp",
+        "temp",
+        "common",
+        "tests"
+    ]
+}
