@@ -8,4 +8,7 @@ export default class MockDatabase extends BaseDatabase implements Database {
     redeem(customerID:string){
         return new Promise<any>((resolve, reject) => resolve({}));
     }
+    deductItem(rewardRef:string){
+        return new Promise<any>((resolve, reject) => resolve({}));
+    }
 }

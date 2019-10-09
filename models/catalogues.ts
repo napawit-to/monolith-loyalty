@@ -1,11 +1,17 @@
-export interface User {
-    first_name: string;
-    last_name: string;
-    email: string;
-    age: number;
-    birthdate?: Date;
-    create_timestamp?: Date;
-    update_timestamp?: Date;
+export interface Catalogues {
+    CategoryId: number;
+    RewardId:number;
+    RewardRef: string;
+    Image: object;
+    Type: number;
+    TypeDesc: string;
+    RewardTh: string;
+    RewardEn: string;
+    Point: string;
+    PointLabel: string;
+    ValidFrom: string;
+    ValidThrough:string;
+    items:number;
 }
 
-export default User;
+export default Catalogues;

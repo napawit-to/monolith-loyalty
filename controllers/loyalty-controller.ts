@@ -19,7 +19,7 @@ export let catalogues: ControllerDelegate<{
 };
 export let redeem: ControllerDelegate<{
     customer_id: string,
-    RewardRef:number
+    RewardRef:string
 }, {
 }> = {
     expectations: {
@@ -35,11 +35,16 @@ export let redeem: ControllerDelegate<{
         }
     },
     perform: async (request) => {
+        // deduct point
         let user = await App.database.redeem(request.body.customer_id);
         if (!user) {
             throw new Error("E00000002")
         }
-
+        // deduct item
+        let item = await App.database.deductItem(request.body.RewardRef);
+        if (!item){
+            throw new Error("E00000003")
+        }
         return {
             status: 200,
         };
