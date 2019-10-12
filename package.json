@@ -2,7 +2,7 @@
   "name": "monolith-loyalty-service",
   "domain": "01",
   "code": "00",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "scripts": {
     "test": "jest",
