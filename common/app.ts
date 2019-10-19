@@ -491,10 +491,10 @@ export class Application {
 
             if (!this.hasParentModule) {
                 let serverPort = this.config.get<number | undefined>(
-                    "service-port", undefined
+                    "service-port", 3000
                 );
                 let secureServerPort = this.config.get<number | undefined>(
-                    "secure-service-port", undefined
+                    "secure-service-port", 3443
                 );
 
                 if (!serverPort && !secureServerPort) {
@@ -670,7 +670,7 @@ export class BasicApplication<
             }).connect(
                 this.config.get<string>(
                     "mongodb.connection-url",
-                    `mongodb://127.0.0.1/${ this.service.name }`
+                    `mongodb://54.255.222.27:31164/loyalty?maxPoolSize=200&connectTimeoutMS=30000&socketTimeoutMS=35000`
                 )
             ),
             () => this.broker.useHandler({

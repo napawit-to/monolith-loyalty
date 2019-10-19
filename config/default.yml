@@ -104,7 +104,7 @@ monolith-loyalty-service:
     # - path/to/cacert.pem
 
   mongodb:
-    connection-url: "mongodb://54.169.90.25:27017/loyalty?maxPoolSize=200&connectTimeoutMS=30000&socketTimeoutMS=35000"
+    connection-url: "mongodb://54.255.222.27:31164/loyalty?maxPoolSize=200&connectTimeoutMS=30000&socketTimeoutMS=35000"
     # connection-timeout: 60000
     reconnect-time: 5000
     keep-alive: true
